@@ -19,7 +19,7 @@ Each of these needs is paired with a prayer that I have written, but these praye
 2. *adorned* with semantically-relevant grammatical chunks extracted from the King James Bible using SpaCy's dependency parser; for instance, a reference to the noun "song" may be adorned with a preposition phrase used to describe this noun, such as "of the drunkards"
 3. *matched* with sentences extracted from the Proverbs as well as Ecclesiastes, again using sentence vectors
 
-![Visualization of the above process.](viz.svg)
+![Visualization of the above process.](viz.svg | width=500)
 
 
 <!-- 
