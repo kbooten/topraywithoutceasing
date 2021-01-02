@@ -1,0 +1,342 @@
+html,body{
+  margin:0;
+  padding:0;
+}
+
+
+img,span,div,a { /*https://stackoverflow.com/a/5225928*/
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+body{
+  background:#313332;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+/*    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="font-size: 12px;"><text y="45">🙏</text></svg>') 6 45, auto;
+*/
+   cursor:url('/static/prayerhands.png') 8 2, auto;
+}
+
+body *{
+    cursor: inherit !important;
+}
+
+body.matchEquipped {
+  cursor:url('/static/fire.png') 8 4, auto;
+}
+
+body.candleEquipped {
+  cursor:url('/static/candle.png') 8 4, auto;
+}
+
+#testWidget{ 
+  position: absolute;
+  display: none;
+}
+
+#scrim{
+  position:absolute;
+  background:black;
+  height:100%;
+  width:100%;
+  right:0px;
+  top:0px;
+  z-index: 5000;
+}
+
+
+#warning{
+  position:absolute;
+  background:lightgray;
+  height:100%;
+  width:100%;
+  right:0px;
+  top:0px;
+  z-index: 5001;
+  visibility: hidden;
+}
+
+#about{
+  background: gray;
+  position: absolute;
+  margin:10px;
+  width:14px;
+  height:14px;
+  border:none;
+  color:white;
+  cursor:pointer !important;
+  border-top: 1px solid transparent;
+}
+
+
+
+#about:hover {
+    background: lightgray;
+    border: 1px solid #00ff00;
+}
+
+
+#aboutMessage{
+  color:#00ff00;
+  position: absolute;
+  left:27px;
+  top:30px;
+  visibility: hidden;
+}
+
+.title{
+  position:absolute;
+  color: white;
+  text-align: center;
+  margin-top:20px;
+  font-size: 14pt;
+  text-shadow: 0 0 10px white, 0 0 10px white;
+}
+
+#myname{
+  color:darkgray;
+  position: fixed;
+  bottom:10px;
+  left: 10px;
+}
+
+#myyear{
+  color:darkgray;
+  position: fixed;
+  bottom:10px;
+  right: 10px;
+}
+
+
+#to{
+  left:49.4%;
+  top:100px;
+}
+
+#pray{
+  left:43%;
+  top:200px;
+}
+
+#without{
+  left:54%;
+  top:201.2px;
+}
+
+#ceasing{
+  left:48%;
+  top:370px;
+}
+
+#container{
+  position:absolute;
+  height: 100vh;
+  width: 100vw;
+  min-height: 700px;
+  min-width: 1000px;
+}
+
+#prayerViewer{
+  margin: auto;
+  width: 750px;
+  margin-top: 30px;
+  color:#07014f;
+  font-size: 40px;
+  text-align: center;
+  font-family:'IM Fell English', serif;
+  text-shadow: 0 0 10px white, 0 0 10px white;
+  visibility:hidden;
+}
+
+#candles{
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -430px;
+  transform: scale(.92);
+}
+
+.candle{
+  background-image: linear-gradient(to right, #706d62, #949284,#adaa92,#e6dfac,#adaa92,#7d7b6a,#5e5850); 
+  position:absolute;
+  bottom:150px;
+  width:36px;
+  height:100px;
+  z-index: 6;
+}
+
+#altar {
+  width:1000px;
+  height: auto;
+  z-index: 10;
+  position:absolute;
+  bottom:10px;
+  pointer-events: none;
+}
+
+#bottom_mask{
+  position:absolute;
+  height:60px;
+  width:100%;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  background-color:black;
+  z-index: -2;
+}
+
+#candle1{
+  margin-left:700px;
+  bottom:150px;
+  height: 200px;
+}
+
+#candle1ghost{
+  margin-left:700px;
+  bottom:150px;
+  height: 200px;
+}
+
+#candle2{
+  margin-left:218px;
+  bottom:139px;
+  height: 400px;
+}
+
+#candle2ghost{
+  margin-left:218px;
+  bottom:139px;
+  height: 400px;
+}
+
+#candle3{
+  margin-left:612px;
+  bottom: 280px;
+  height: 210px;
+}
+
+#candle3ghost{
+  margin-left:612px;
+  bottom: 280px;
+  height: 210px;
+}
+
+.wick{
+  font-size: 25px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  margin-top:-18px;
+  color:white
+}
+
+.lighting{
+  text-shadow: 0 0 10px gold, 0 0 10px gold, 0 0 10px gold;
+}
+
+.flame{
+  margin: auto;
+  text-align: center;
+  margin-top:-34px;
+  visibility: hidden;
+}
+
+#flame1{
+  filter: hue-rotate(44deg);
+}
+
+#flame2{
+  filter: hue-rotate(300deg);
+}
+
+#flame3{
+  filter: hue-rotate(90deg);
+}
+
+.smoke{
+  margin: auto;
+  width:100%;
+  height:4000px;
+  margin-top:-4020px;
+  visibility: hidden;
+}
+
+.ghost{
+  opacity: 0;
+  z-index: 1;
+}
+
+#particles-js{
+  position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:150%;
+    z-index:10;
+}
+
+#my_widget_region{
+  position:absolute;
+  bottom:199px;
+  margin-left:316px;
+  height:400px;
+}
+
+#my_widget_inner{
+  position:absolute;
+  bottom:-10px;
+}
+
+#buttons{
+  position:absolute;
+  margin-left:14px;
+  bottom:40px;
+  z-index: 10;
+}
+
+.equipButton{
+  font-size: 25px;
+  text-align: center;
+  margin-right: 7px;
+}
+
+#clock{
+  position:absolute;
+  right:45px;
+  top:25px;
+  font-size:25px;
+  display:none;
+}
+
+#levelInfo{
+  position: absolute;
+  right:35px;
+  top:63px;
+  color: white;
+  visibility: hidden;
+  display: none;
+}
+
+#currentHour{
+  visibility: visible;
+}
+
+#testButton{
+  opacity: 0.2;
+}
+
+#totalPrayers{
+  position: absolute;
+  right:50px;
+  bottom:23px;
+  color: gray;
+  font-size:14pt;
+  z-index: 10;
+}

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>To Pray Without Ceasing</title>
+<!-- 
+☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎
+
+"To Pray Without Ceasing", Copyright (C) 2020 Kyle Booten 
+
+☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎☦︎
+-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <meta name="viewport" content="width=450,, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://vincentgarreau.com/particles.js/assets/_build/js/lib/particles.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='twitter.js') }}"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@1&display=swap" rel="stylesheet">
+</head>
+<body id="theBody">
+    <div id="container">
+    <div id="scrim">
+<!--         <div id="title">To Pray Without Ceasing</div>
+ -->        
+        <div id="to" class="title">To</div>
+        <div id="pray" class="title">Pray</div>
+        <div id="without" class="title">Without</div>
+        <div id="ceasing" class="title">Ceasing</div>
+<!--         <div id="myname">Kyle Booten</div>
+        <div id="myyear">2020</div> -->
+    </div>
+    <a type="button" id="about" href="http://residence6.nokturno.fi/"  target="_blank" onmouseover="showAbout()" onmouseout="hideAbout()"></a>
+    <div id="aboutMessage">
+        Kyle Booten   +2020+<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+about+
+    </div>
+    <div id="warning"></div>
+    <div id="prayerViewer"></div>
+    <div id="testWidget"></div>
+    <div id="candles">
+        <img id='altar' src="{{ url_for('static', filename='altar.png') }}">
+        <div id="candle1" class="candle">
+            <div id="wick1" class="wick">|</div>
+            <div id="flame1" class="flame">🔥</div>
+            <div id="smoke1" class="smoke"></div>
+        </div>
+        <div id="candle1ghost" class="candle ghost">
+            <div id="wick1ghost" class="wick ghost">|</div>
+        </div>
+        <div id="candle2" class="candle">
+            <div id="wick2" class="wick">|</div>
+            <div id="flame2" class="flame">🔥</div>
+            <div id="smoke2" class="smoke"></div>
+        </div>
+        <div id="candle2ghost" class="candle ghost" >
+            <div id="wick2ghost" class="wick ghost">|</div>
+        </div>
+        <div id="candle3" class="candle">
+            <div id="wick3" class="wick">|</div>
+            <div id="flame3" class="flame">🔥</div>
+            <div id="smoke3" class="smoke"></div>
+        </div>
+        <div id="candle3ghost" class="candle ghost">
+            <div id="wick3ghost" class="wick ghost">|</div>
+        </div>
+        <div id="my_widget_region">
+            <div id="my_widget_inner"></div>
+        </div>
+    </div>
+    <div id="bottom_mask"></div>
+    <div id="buttons">
+        <button type="button" class="equipButton" onclick="equipCandle()">➕🕯️</button>
+        <button type="button" class="equipButton" onclick="equipMatch()">🔥</button>
+    </div>
+    <div id="clock">🕒</div>
+    <div id="levelInfo">
+        <div id="levelReveal">
+            <div id="levelReveal1">Currently it is <span id="currentHour">MATINS</span>.</div>
+            <div id="levelReveal2"><span id="minutesUntilNextHour">2</span> <span id="minuteOrMinutes">minutes</span> until <span id="nextHour">LAUDS</span>.</div>
+        </div>
+    </div>
+    <div id="totalPrayers">You have prayed <span id="totalPrayersNumber">0</span> <span id="prayerOrPrayers">prayers</span>.</div>
+    <div id="bottom_mask"></div>
+    </div>
+</body>
+    <script>
+    
+
+///////////////////////////
+// introductory messages //
+///////////////////////////
+
+
+function showAbout(){
+    document.getElementById('aboutMessage').style.visibility="visible";
+    readyToScold = false; ///this is just so about page doesn't get people in trouble with mouse scolder
+    setTimeout(function(){
+        readyToScold = true;
+    },4000);
+}
+
+
+function hideAbout(){
+    document.getElementById('aboutMessage').style.visibility="hidden";
+}
+
+
+function interPassiveMessage(){
+    readyToScold = false; // turn off mouse speed chiding for this
+    var message = "You have begun to pray. The smoke rises. Each need receives its moment of attention.\n\nNow you can go about your day, tending to other screens, to your own needs.\n\nBut please return from time to time to make sure the candles still burn.\n\n\n\nAnd be mindful of the flames, which are hotter than most flames."
+    window.alert(message);
+    setTimeout(function(){readyToScold = true});
+}
+
+///////////////////////////
+// interface with server //
+///////////////////////////
+
+
+var currentPrayers = []
+
+
+function getPrayers(hour,firstTime=false){
+  $.get("/get_prayers", {"hour": hour}).done(function(data){
+    console.log(data);
+    currentPrayers = data;
+    if (firstTime==true){
+        startWidgetDisplay();
+    }
+  });
+}
+
+
+////////////////////
+// twitter widget //
+////////////////////
+
+
+// var currentWidgetId = 0;
+
+var totalPrayers = 0;
+
+var prayedBefore = false;
+
+var mostRecentPrayerThatGotCredit = null; 
+
+var widgetInterval = null;
+
+var tooLateTooPray = false;
+
+
+function addTestWidget(){
+    twttr.widgets.createTweet("20",document.getElementById('testWidget'),{
+        theme: 'dark',
+        max_width: 500,
+        // hide_thread: true,
+        // hide_media: true,
+        cards:"hidden",
+        conversation:"none",
+    });
+}
+
+
+function displayTweet(id){
+    document.getElementById("my_widget_inner").innerHTML = "";
+    twttr.widgets.createTweet(id,document.getElementById('my_widget_inner'),{
+        theme: 'dark',
+        max_width: 500,
+        // hide_thread: true,
+        // hide_media: true,
+        cards:"hidden",
+        conversation:"none",
+    });
+    //testDisplayedTweet();
+}
+
+
+function incrementPrayerTotal(){
+    if (mostRecentPrayerThatGotCredit != currentPrayers[0]){ //if haven't received credit for this prayer
+        mostRecentPrayerThatGotCredit = currentPrayers[0] // keep track of this
+        totalPrayers+=1;
+        document.getElementById("totalPrayersNumber").innerHTML = totalPrayers;
+        if (totalPrayers==1){
+            document.getElementById("prayerOrPrayers").innerHTML = "prayer"
+        }else{
+            document.getElementById("prayerOrPrayers").innerHTML = "prayers"                        
+        }
+    }
+}
+
+
+function prayerNext(){
+    // show the next tweet,
+    // possibly fade in its prayer
+    // if prayer gets shown, count it
+    currentPrayer = currentPrayers.shift(); // off
+    currentPrayers.push(currentPrayer) // on
+    id = String(currentPrayer[0]); //should be a string already, but just in case
+    console.log("id: "+id)
+    prayer = currentPrayer[1];
+    pV = document.getElementById("prayerViewer")
+    pV.innerHTML = prayer; //always display the prayer, tho it may be invisible
+    if (areAnyLit()==true){
+        pV.style.opacity=0.0;
+        pV.style.visibility="visible";
+        setTimeout(function(){$("#prayerViewer").fadeTo(2000, 1,incrementPrayerTotal)},3400);
+    }
+    displayTweet(id)
+    // if (id!=currentWidgetId){
+    //     if (areAnyLit()==true && pV.style.visibility=="visible" && pV.innerHTML.length>1){
+    //         totalPrayers+=1;
+    //         document.getElementById("totalPrayersNumber").innerHTML = totalPrayers;
+            // if (totalPrayers==1){
+            //     document.getElementById("prayerOrPrayers").innerHTML = "prayer"
+            // }else{
+            //     document.getElementById("prayerOrPrayers").innerHTML = "prayers"                        
+            // }
+    //     }
+    //     displayTweet(id);
+    //     currentWidgetId = id;
+    //}
+    ///
+}
+
+
+function startWidgetDisplay(){
+
+    //determine the correct speed of prayers/tweets by length of hour and number of prayers
+    var currentHour = hc.hours[0];
+    var currentHourLength = hc.hours2duration[currentHour];
+    var timePerTweet = currentHourLength/currentPrayers.length;
+    var interval = Math.max(30000,timePerTweet); //set reasonable minimum
+    console.log("Hour "+currentHour+" interval:"+interval);
+
+
+    //don't wait to display first one
+    console.log('first need displaying')
+    prayerNext();
+    // keep track of how close we are to the next prayer
+    tooLateTooPray = false;
+    setTimeout(function(){tooLateTooPray=true},interval-10000) //at least 10 seconds for new prayer
+    widgetInterval = setInterval(function(){
+        if (hc.hours[0]!=currentHoursPrayersStored){ // change the hour
+            document.getElementById('prayerViewer').innerHTML = ""; /// just blank out before change
+            getPrayers(hc.hours[0]); // reloads prayers
+            currentHoursPrayersStored = hc.hours[0]; // this is odd
+        } else {
+            tooLateTooPray = false;
+            setTimeout(function(){tooLateTooPray=true},interval-10000)
+            prayerNext();
+        }
+    },interval);
+}
+
+
+/////////////////
+// mouse speed //
+/////////////////
+
+
+var readyToScold = false;
+var lastTooFastTimestamp = 100000;
+var warnings = 0;
+
+
+class MouseSpeed {
+  constructor() {
+    this.cb = () => {};
+    this.speedX = 0;
+    this.speedY = 0;
+    this.oldX = 0;
+    this.oldY = 0;
+    this.firstCalc = true;
+    this.timerId;
+    this.calcSpeed = this.calcSpeed.bind(this);
+  }
+  calcSpeed(e) {
+    if (!this.firstCalc) { //(e.clientX<10 || e.clientY<10 || e.clientX > window.innerWidth-10 || e.clientX > window.innerHeight-10)
+      if (e.clientX>10 && e.clientY>10 && e.clientX < window.innerWidth-10 && e.clientY < window.innerHeight-10){ /// this keeps speed from updating when you exit/enter the page
+        this.speedX = e.clientX - this.oldX;
+        this.speedY = e.clientY - this.oldY;       
+      }else{
+        this.speedX==0;
+        this.speedY==0;
+      }
+      this.oldX = e.clientX;
+      this.oldY = e.clientY;
+      this.cb();
+      this.setToZero();
+    } else {
+      if (e.clientX>10 && e.clientY>10 && e.clientX < window.innerWidth-10 && e.clientY < window.innerHeight-10){
+        this.speedX = e.clientX - this.oldX;
+        this.speedY = e.clientY - this.oldY;       
+      }else{
+        this.speedX==0;
+        this.speedY==0;
+      }
+      this.oldX = e.clientX;
+      this.oldY = e.clientY;
+      this.firstCalc = false;
+    }
+  }
+  setToZero() {
+    clearTimeout(this.timerId);
+    this.timerId = setTimeout(() => {
+      this.speedX = 0;
+      this.speedY = 0;
+      this.cb();
+    }, 50);
+  }
+  init(
+    cb = () => {
+      console.log(
+        `pass a callback function on init to access speedX and speedY.`
+      );
+    }
+  ) {
+    this.cb = cb;
+    window.addEventListener("mousemove", this.calcSpeed);
+  }
+  destroy(cb) {
+    window.removeEventListener("mousemove", this.calcSpeed);
+    cb();
+  }
+};
+
+
+var chideOptions = [
+            "Here one must move slowly.",
+            "Elsewhere one may jitter, sprint, and lurch. Not here.",
+            "The smoke of prayer is easily dispelled, and so one moves slowly here.",
+            "The hand should walk, not run.",
+            "The ritual cannot be rushed.",
+            "Prayer cannot be hurried along.",
+            "Elsewhere one may lurch and jitter.  Here one moves with respect for the fragility of smoke.",
+            "Calm the motion of your body.",
+            "Think about moving the way smoke moves.",
+            "Touch one hand to another.  Breathe.\n\nNow, try again, this time slowly.",
+            "Please respect the quietness of this space.  Your body is noisy.",
+            ]
+
+
+var quickChideOptions = [
+            "Please move with reverence.",
+            "Please.",
+            ]
+
+
+var onCalcSpeed = function() {
+    var speedX = speed.speedX;
+    var speedY = speed.speedY;
+    // do anything you want with speed values
+    var abs = Math.abs(speedX)+Math.abs(speedY);
+    console.log(abs)
+    if (abs>230 && readyToScold==true){
+        console.log(warnings)
+        warnings+=1
+        readyToScold = false;
+        timeStamp = Date.now()
+        timeGap = timeStamp - lastTooFastTimestamp;
+        console.log(warnings)
+        if (timeGap < 5000){ // bother again if violations in quick succession
+            var lastQuickChideOption = quickChideOptions.shift()
+            quickChideOptions.push(lastQuickChideOption);
+            window.alert(lastQuickChideOption)    
+        }else if (warnings==1){
+            window.alert("Your cursor is fleet.  But this is a place for being slow.")
+        }else if (warnings==10){
+            window.alert("From the Latin 'currere'--'to run.'  Yet this is not a place for running.")
+        }else if (warnings==20){
+            window.alert("Non decurrunt!")
+        }else if (warnings==20){
+            window.alert("Not for running but for kneeling.")
+        }else{ 
+            console.log(chideOptions)
+            var lastChideOption = chideOptions.shift()
+            //chideOptions.push(lastChideOption);
+            window.alert(lastChideOption)    
+        }
+        setTimeout(function(){
+            readyToScold=true
+            lastTooFastTimestamp=Date.now();
+        }, 2000); // grace period             
+    }
+};
+
+
+var speed = new MouseSpeed();
+speed.init(onCalcSpeed);
+
+
+////////////
+// candle //
+////////////
+
+
+var candleHeld = false;
+var matchHeld = false;
+var match = document.getElementById(match);
+var candleLitEver = false;
+
+
+function resetEquip(){
+    unEquipMatch();
+    unEquipCandle();
+}
+
+
+function equipMatch(){  //https://stackoverflow.com/a/63042884
+    resetEquip();
+    document.body.classList.add('matchEquipped');
+    matchHeld = true;
+    console.log('match')
+}
+
+
+function unEquipMatch(){ 
+    document.body.classList.remove('matchEquipped');
+    matchHeld = false;
+}
+
+
+function equipCandle(){  //https://stackoverflow.com/a/63042884
+    resetEquip();
+    document.body.classList.add('candleEquipped');
+    candleHeld = true;
+    console.log('match')
+}
+
+
+function unEquipCandle(){ 
+    document.body.classList.remove('candleEquipped');
+    candleHeld = false;
+}
+
+
+let Candle = class {
+    constructor(candle,wick,flame,smoke,ghost,ghostwick){
+        var self = this;
+        self.candle = document.getElementById(candle);
+        self.startingHeight = self.candle.offsetHeight;
+        self.wick = document.getElementById(wick);
+        self.flame = document.getElementById(flame);
+        self.smoke = document.getElementById(smoke);
+        self.ghostCandle = document.getElementById(ghost);
+        self.ghostWick = document.getElementById(ghostwick);
+        self.isLit = false;
+        self.isBurnt = true;
+        self.flame.style.visibility = "hidden";
+        self.wick.style.visibility = "hidden";
+        self.smoke.style.visibility = "hidden";
+        self.candle.style.height = '1px';
+        //load smoke
+        particlesJS.load(smoke, "/static/particles.json", function(){
+                console.log('callback - particles.js config loaded');
+            });             
+        //control smoke
+        self.startSmoke = function(){
+            self.smoke.style.visibility="visible"
+        }
+        self.stopSmoke = function(){
+            self.smoke.style.visibility="hidden"
+        }
+        // light candle with mouse
+        self.wick.onmouseover = function(){ //https://stackoverflow.com/q/13672865
+            if (self.isBurnt==false && self.isLit==false && matchHeld==true){
+                self.wick.classList.add('lighting'); 
+                var delay=setTimeout(function(){
+                    self.wick.classList.remove('lighting'); 
+                    self.flame.style.visibility = "visible";
+                    self.wick.style.cursor = "default"; 
+                    self.wick.style.color = "#24170b";
+                    self.startSmoke();
+                    self.startBurn();
+                    if (areAnyLit()==false){
+                        console.log('***starting horae canonicae***');
+                        hc.start();
+                        // display the first prayer if not too late
+                        if (tooLateTooPray==false){
+                            pV = document.getElementById("prayerViewer");
+                            // console.log(currentPrayers[0][1]);
+                            // pV.innerHTML = currentPrayers[0][1]; //reveal first prayer
+                            pV.style.visibility = 'visible';
+                            pV.style.opacity = 0;            
+                            setTimeout(function(){$("#prayerViewer").fadeTo(2000, 1,incrementPrayerTotal)},3400);
+                        }else{
+                            console.log("too late, waiting for next tweet")
+                        }
+                        // display clock
+                        document.getElementById('clock').style.display = "block";
+                        document.getElementById('levelInfo').style.display = "block";
+                        // maybe settimeout for first time message
+                        if (prayedBefore==false){
+                            prayedBefore = true; // don't let message happen again
+                            setTimeout(interPassiveMessage,20000)
+                        }
+                    }
+                    self.isLit = true;
+                },1000);
+                self.wick.onmouseout = function(){
+                    self.wick.style.cursor = "default"; 
+                    clearTimeout(delay);
+                };
+            }
+        }
+        self.wick.onmouseleave = function(){
+            // deglow wick
+                self.wick.classList.remove('lighting'); 
+            }
+        // burn candle
+        self.startBurn = function(){
+        self.burnInterval = setInterval(function(){ //https://stackoverflow.com/a/20439951
+            var currentHeight = self.candle.offsetHeight;
+            var newHeight = currentHeight - 1;
+            self.candle.style.height = newHeight + 'px';
+            // sufficiently burnt
+            if (newHeight<5){
+                clearInterval(self.burnInterval);
+                self.goBurnt();
+            }
+            },5000); // burn speed
+        }
+        // candle goes out
+        self.goBurnt = function(){
+            console.log('burnt')
+            self.isBurnt = true;
+            self.flame.style.visibility = "hidden";
+            self.wick.style.visibility = "hidden";
+            self.smoke.style.visibility = "hidden";
+            self.stopSmoke();
+            ///possibly stop prayer
+            self.isLit = false;
+            if (areAnyLit()==false){
+                console.log('***stopping horae canonicae***');
+                stopPrayer();
+                document.getElementById('clock').style.display = "none";
+                document.getElementById('levelInfo').style.display = "none";
+                document.getElementById("prayerViewer").style.visibility = 'hidden';
+            }
+        }
+        // relight candle
+        self.ghostCandle.onmouseover = function(){
+            console.log("ghost");
+            if (self.isBurnt==true && candleHeld==true){
+                self.ghostCandle.style.opacity = "0.3";
+                self.ghostWick.style.opacity = "0.3";
+            }
+        }
+        // ghost vanishes
+        self.ghostCandle.onmouseleave = function(){
+            self.ghostCandle.style.opacity = "0";
+            self.ghostWick.style.opacity = "0";
+        }
+        // ghost 
+        self.ghostCandle.onclick = function(){ //https://stackoverflow.com/q/13672865
+            if (self.isBurnt==true && candleHeld==true){
+                self.ghostCandle.style.opacity = "0";
+                self.ghostWick.style.opacity = "0";
+                self.wick.style.visibility = "visible";
+                self.wick.style.color = "white";    
+                self.candle.style.height = self.startingHeight + 'px';
+                self.isBurnt = false;
+            }
+        }
+        // snuff out candle
+        self.pauseCandle = function(){
+            self.isLit = false;
+            self.flame.style.visibility = "hidden";
+            clearInterval(self.burnInterval);
+            self.stopSmoke();
+            ///below repeats, need to wrap in function
+            console.log('***stopping horae canonicae***');
+            stopPrayer();
+            if (areAnyLit()==false){
+                document.getElementById('clock').style.display = "none";
+                document.getElementById('levelInfo').style.display = "none";
+                document.getElementById("prayerViewer").style.visibility = 'hidden';
+            }
+        }
+        // ghost pauses
+        self.candle.onclick = function(){
+            self.pauseCandle();
+
+        }
+        // 
+        self.candle.onmouseover = function(){
+            if (self.isBurnt==true){
+                self.candle.style.cursor="cell";
+            }else{
+                self.candle.style.cursor="default"
+            }
+        }   
+    }
+};
+
+
+candle1= new Candle("candle1","wick1","flame1","smoke1","candle1ghost","wick1ghost",hc)
+candle2= new Candle("candle2","wick2","flame2","smoke2","candle2ghost","wick2ghost",hc)
+candle3= new Candle("candle3","wick3","flame3","smoke3","candle3ghost","wick3ghost",hc)
+
+
+function areAnyLit(){
+    /// check on the candles to see if any are still lit
+    /// useful for starting/restarting the prayers when going from 0 to 1 candle lit, and vice versa
+    if (candle1.isLit==false && candle2.isLit==false && candle3.isLit==false){
+        return false
+    }else{
+        return true
+    }
+}
+
+
+/////////////////////////////////////
+// set cursor back to prayer hands //
+/////////////////////////////////////
+
+
+var countDown = setTimeout(function(){
+        // do nothing
+    },1);
+
+document.getElementById("theBody").onmousemove = function(){
+    clearTimeout(countDown);
+    countDown = setTimeout(function(){
+        resetEquip();// back to praying hands
+    },10000);
+}
+
+
+///////////////
+// the hours //
+///////////////
+
+
+let horaeCanonicae = class {
+    
+    constructor(){
+        var self = this;
+        self.startTime = Date.now();
+        self.hours = ['matins','lauds','prime','terce','sext','nones','vespers','compline'];
+        //self.currentHour = self.hours[0];
+        self.hours2duration = {
+                            // should be 24 hours, or 1440 minutes
+                            'matins': 60000 * 10,
+                            'lauds': 60000 *  20,
+                            'prime': 60000 * 70,
+                            'terce': 60000 * 110,
+                            'sext': 60000 * 200,
+                            'nones': 60000 * 380,
+                            'vespers': 60000 * 590,
+                            'compline': 60000 * 60,
+                        };
+        self.timeAlreadySpent = 0;//this is what I'll credit upon restarting, subtracting from total time left
+
+        self.start = function(){
+            //need to reset the time i'm crediting here or else it will keep adding it
+            self.startTime = Date.now();
+            var timeAlreadySpentOld = self.timeAlreadySpent
+            self.timeAlreadySpent = 0;
+            ///change hour in a bit
+            console.log(self.hours2duration[self.hours[0]]-timeAlreadySpentOld);
+            self.intervalVariable = setInterval(self.changeHour,
+                self.hours2duration[self.hours[0]]-timeAlreadySpentOld);
+        }
+
+        self.changeHour = function(){
+            //cycle hours list
+            var lastHour = self.hours.shift();
+            self.hours.push(lastHour);
+            self.startTime = Date.now();
+            self.timeAlreadySpent = 0; // must reset when switching from Matins to Lauds etc.
+            document.getElementById("currentHour").innerHTML = self.hours[0].toUpperCase();
+            document.getElementById("nextHour").innerHTML = self.hours[1].toUpperCase();
+        }
+        
+        self.pause = function(){
+            ///will happen when prayer stops/candles go out
+            var elapsedTime = Date.now()-this.startTime;
+            self.timeAlreadySpent = elapsedTime; // credit this to user for unpausing
+            clearInterval(self.intervalVariable);
+        }
+
+    }
+
+    minutesUntilNext(){
+        console.log("startTime =" +this.startTime);
+        var elapsedTime = Date.now()-this.startTime;
+                console.log("elapsedTime =" +elapsedTime);
+                console.log(this.hours2duration)
+                console.log(this.hours[0])
+                console.log(this.hours2duration[this.hours[0]])
+        var timeToGo = this.hours2duration[this.hours[0]]-elapsedTime;
+
+                console.log("timeToGo =" +timeToGo);
+
+        var minutesToGo = Math.floor(timeToGo / 60000)+1; /// milliseconds to minutes, adding a minute to not get zero minute
+        return minutesToGo
+    }
+}
+
+
+var hc = new horaeCanonicae();
+
+
+let clockUpdater = class{
+
+    constructor(hours){
+        var self = this;
+        self.hours = hours;
+        self.clock = document.getElementById("clock");
+        self.minuteOrMinutes = document.getElementById("minuteOrMinutes");
+        self.minutesUntilNextHour = document.getElementById("minutesUntilNextHour");
+        self.levelReveal = document.getElementById("levelReveal");
+        self.currentHour = document.getElementById("currentHour");
+    
+        self.clock.onmouseover = function(){
+            console.log('clock touched');
+            self.updateClock();
+        }
+
+        self.updateClock = function(){
+            var minutesToGo = this.hours.minutesUntilNext();
+            if (minutesToGo==1){
+                self.minuteOrMinutes.innerHTML = "minute"
+            }else{
+                self.minuteOrMinutes.innerHTML = "minutes"
+            }
+            self.minutesUntilNextHour.innerHTML = minutesToGo;
+            self.levelReveal.style.visibility="visible";
+        }
+
+        self.clock.onmouseleave = function(){
+            self.levelReveal.style.visibility="hidden";
+            self.currentHour.style.visibility="visible";
+        }
+    }
+};
+
+
+var cu = new clockUpdater(hc);
+
+
+///////////////////////
+// stop/start prayer //
+///////////////////////
+
+
+function stopPrayer(){
+    hc.pause();
+}
+
+
+/////////////////////
+// background loop //
+/////////////////////
+
+
+// first make sure not on mobile
+var anyWarnings = false;
+
+
+///https://stackoverflow.com/a/3540295
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ){
+    var warning = document.getElementById("warning")
+    warning.innerHTML = "To Pray Without Ceasing is not for mobile devices"
+    warning.style.visibility = "visible";
+    anyWarnings = true;
+ // some code..
+}
+
+
+console.log("starting hour is "+hc.hours[0])
+var currentHoursPrayersStored = hc.hours[0];
+$(window).on('load', function(){
+    getPrayers(currentHoursPrayersStored,firstTime=true);
+    setTimeout(function(){
+        $("#scrim" ).fadeTo(6000, 0, function(){
+            var scrim = document.getElementById('scrim');
+            scrim.remove();
+            if (anyWarnings==false){ // don't scold if on mobile, incognito, etc.
+                readyToScold = true;
+            }
+        });
+    },6000);
+    // this is very bad, need to test after has chance to load
+    // this mostly prevents tweets not showing up on firefox private mode
+    addTestWidget(); /// adds a test widget (invisible)
+    setTimeout(function(){
+        var nodes = document.getElementById('testWidget').childNodes;
+        if (nodes.item(0)!=null){
+            console.log("successfully loaded test")
+        }else{
+            if (anyWarnings==false){
+                console.log("did not load test; must raise warning")
+                var warning = document.getElementById("warning")
+                warning.innerHTML = "Content blocking detected; try again with a different browser or outside of incognito/private mode"
+                warning.style.visibility = "visible";
+                anyWarnings=true;
+            }
+        }
+    },2000);
+});
+
+    </script>
+</html>
+
+
+
+
+
