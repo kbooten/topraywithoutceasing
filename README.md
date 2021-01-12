@@ -9,7 +9,7 @@ Evoking the "Liturgy of the Hours," the system prays in different ways at specif
 When visiting the web-app, the visitor must move their cursor slowly, with respect for the holiness of the space.  Moving the cursor too quickly may result in a stern warning---but no number of violations results in the visitor's expulsion. 
 
 
-## Computer-Augmented Prayers
+## Data-Science-Assisted Writing
 
 To Pray Without Ceasing issues prayers via a combination of information-retrieval and what I'd call computer-augmented (rather than computer-generated) writing.  Using [sentence vectors](https://www.sbert.net/), the system tries to match need-statements from Twitter to one of a finite list of Target Needs that I have written.  Through composing these Target Needs, I have decided in advance what kinds of tweets for which the system will pray as well as those for which it will not. 
 
@@ -21,6 +21,11 @@ Each of these needs is paired with a prayer that I have written, but these praye
 
 ![Visualization of the above process.](viz.svg)
 
+### Liturgical Data Science
+
+For what needs should I compose prayers?  Searching Twitter for "I need" and "I just need" and "I really need" will summon a diverse panoply of needs, from the trivial to the abject.  To help me target frequent/typical Need Statements, I analyze a corpus of Need Statements from Twitter using various data, clustering them (using "agglomerative clustering") as well as simply analyzing frequent n-grams.  When I write prayers (an unending process), I have [this notebook open](orisonation/prayer_writing_helper.ipynb).
+
+What words are Biblical enough to be included in the system's vocabulary?  Once again, quantitative analysis helped me to answer this question, since I myself only have the most vague and depressingly under-educated notions of what words appear the the King James.  ("Pottage," I did not know, is relatively important.)  In this notebook I rather rustically target "key words," those that appear in the KJV more frequently than in a comparison corpus.  I sift through the output of [this notebook](orisonation/kjv_analysis.ipynb), adding choice specimens in the system's vocabulary.
 
 <!-- 
 ## Prayer Interface
