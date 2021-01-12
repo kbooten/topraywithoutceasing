@@ -97,10 +97,10 @@
 
 function showAbout(){
     document.getElementById('aboutMessage').style.visibility="visible";
-    readyToScold = false; ///this is just so about page doesn't get people in trouble with mouse scolder
-    setTimeout(function(){
-        readyToScold = true;
-    },4000);
+    // readyToScold = false; ///this is just so about page doesn't get people in trouble with mouse scolder
+    // setTimeout(function(){
+    //     readyToScold = true;
+    // },40000);
 }
 
 
@@ -113,7 +113,7 @@ function interPassiveMessage(){
     readyToScold = false; // turn off mouse speed chiding for this
     var message = "You have begun to pray. The smoke rises. Each need receives its moment of attention.\n\nNow you can go about your day, tending to other screens, to your own needs.\n\nBut please return from time to time to make sure the candles still burn.\n\n\n\nAnd be mindful of the flames, which are hotter than most flames."
     window.alert(message);
-    setTimeout(function(){readyToScold = true});
+    setTimeout(function(){readyToScold = true},4000);
 }
 
 ///////////////////////////
@@ -128,9 +128,9 @@ function getPrayers(hour,firstTime=false){
   $.get("/get_prayers", {"hour": hour}).done(function(data){
     console.log(data);
     currentPrayers = data;
-    if (firstTime==true){
-        startWidgetDisplay();
-    }
+    //if (firstTime==false){
+    //startWidgetDisplay();
+    //}
   });
 }
 
@@ -175,7 +175,6 @@ function displayTweet(id){
         cards:"hidden",
         conversation:"none",
     });
-    //testDisplayedTweet();
 }
 
 
@@ -193,67 +192,74 @@ function incrementPrayerTotal(){
 }
 
 
+function testMainTweetWidget(){
+    ///make sure tweet hasn't been deleted or won't load for another reason
+    //returns true of tweet shows up
+    var nodes = document.getElementById('my_widget_inner').childNodes;
+    console.log("nodes")
+    console.log(nodes);
+    if (nodes.item(0)!=null){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
 function prayerNext(){
     // show the next tweet,
     // possibly fade in its prayer
     // if prayer gets shown, count it
-    currentPrayer = currentPrayers.shift(); // off
+    var currentPrayer = currentPrayers.shift(); // off
     currentPrayers.push(currentPrayer) // on
     id = String(currentPrayer[0]); //should be a string already, but just in case
     console.log("id: "+id)
     prayer = currentPrayer[1];
     pV = document.getElementById("prayerViewer")
-    pV.innerHTML = prayer; //always display the prayer, tho it may be invisible
-    if (areAnyLit()==true){
-        pV.style.opacity=0.0;
-        pV.style.visibility="visible";
-        setTimeout(function(){$("#prayerViewer").fadeTo(2000, 1,incrementPrayerTotal)},3400);
-    }
-    displayTweet(id)
-    // if (id!=currentWidgetId){
-    //     if (areAnyLit()==true && pV.style.visibility=="visible" && pV.innerHTML.length>1){
-    //         totalPrayers+=1;
-    //         document.getElementById("totalPrayersNumber").innerHTML = totalPrayers;
-            // if (totalPrayers==1){
-            //     document.getElementById("prayerOrPrayers").innerHTML = "prayer"
-            // }else{
-            //     document.getElementById("prayerOrPrayers").innerHTML = "prayers"                        
-            // }
-    //     }
-    //     displayTweet(id);
-    //     currentWidgetId = id;
-    //}
-    ///
+    pV.style.opacity=0.0;
+    pV.innerHTML = prayer; //always display the prayer, though it may be invisible
+    displayTweet(id);
+    setTimeout(function(){
+        // after a few seconds, test to make sure tweet visible
+        // and candle lit
+        // if it is, fade in prayer then count it
+        if (areAnyLit()==true && testMainTweetWidget()==true){
+            //pV.style.visibility="visible";
+            $("#prayerViewer").fadeTo(2000, 1,incrementPrayerTotal);
+        }
+    },3400);
 }
 
 
 function startWidgetDisplay(){
-
-    //determine the correct speed of prayers/tweets by length of hour and number of prayers
-    var currentHour = hc.hours[0];
-    var currentHourLength = hc.hours2duration[currentHour];
-    var timePerTweet = currentHourLength/currentPrayers.length;
-    var interval = Math.max(30000,timePerTweet); //set reasonable minimum
-    console.log("Hour "+currentHour+" interval:"+interval);
-
-
-    //don't wait to display first one
-    console.log('first need displaying')
-    prayerNext();
-    // keep track of how close we are to the next prayer
-    tooLateTooPray = false;
-    setTimeout(function(){tooLateTooPray=true},interval-10000) //at least 10 seconds for new prayer
-    widgetInterval = setInterval(function(){
-        if (hc.hours[0]!=currentHoursPrayersStored){ // change the hour
-            document.getElementById('prayerViewer').innerHTML = ""; /// just blank out before change
-            getPrayers(hc.hours[0]); // reloads prayers
-            currentHoursPrayersStored = hc.hours[0]; // this is odd
-        } else {
+    /// get tweetids/prayers for an hour
+    /// display first tweet
+    /// set loop
+    $.get("/get_prayers", {"hour": hc.hours[0]}).done(function(data){
+        pV = document.getElementById("prayerViewer");
+        pV.style.opacity = 0;            
+        console.log(data);
+        currentPrayers = data;
+        clearInterval(widgetInterval);
+        //determine the correct speed of prayers/tweets by length of hour and number of prayers
+        var currentHour = hc.hours[0];
+        var currentHourLength = hc.hours2duration[currentHour];
+        var timePerTweet = currentHourLength/currentPrayers.length;
+        var interval = Math.max(30000,timePerTweet); //set reasonable minimum
+        console.log("Hour "+currentHour+" interval:"+interval);
+        //don't wait to display first one
+        console.log('first need displaying')
+        prayerNext();
+        // keep track of how close we are to the next prayer
+        tooLateTooPray = false;
+        setTimeout(function(){tooLateTooPray=true},interval-10000) //at least 10 seconds for new prayer
+        widgetInterval = setInterval(function(){
             tooLateTooPray = false;
             setTimeout(function(){tooLateTooPray=true},interval-10000)
             prayerNext();
-        }
-    },interval);
+            //}
+        },interval);
+    });
 }
 
 
@@ -675,6 +681,8 @@ let horaeCanonicae = class {
             self.timeAlreadySpent = 0; // must reset when switching from Matins to Lauds etc.
             document.getElementById("currentHour").innerHTML = self.hours[0].toUpperCase();
             document.getElementById("nextHour").innerHTML = self.hours[1].toUpperCase();
+            // external
+            startWidgetDisplay();
         }
         
         self.pause = function(){
@@ -777,6 +785,7 @@ console.log("starting hour is "+hc.hours[0])
 var currentHoursPrayersStored = hc.hours[0];
 $(window).on('load', function(){
     getPrayers(currentHoursPrayersStored,firstTime=true);
+    startWidgetDisplay();
     setTimeout(function(){
         $("#scrim" ).fadeTo(6000, 0, function(){
             var scrim = document.getElementById('scrim');

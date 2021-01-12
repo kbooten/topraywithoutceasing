@@ -142,6 +142,7 @@ def adorn_noun_with_phrase(astring):
 	thisorthat,noun,phrase = get_prep_recl_phrase_for_noun(core)
 	phrase = phrase[0]
 	phrase_str = betterjoin([token for token,tag in phrase])
+	phrase_str = re.sub(r'that ',"","that is cool",flags=re.IGNORECASE) ## some begin "that"
 	noun_str = noun[0]
 	str_rep = "%s %s %s" % (thisorthat,noun_str,phrase_str)
 	return str_rep

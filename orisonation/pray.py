@@ -107,6 +107,7 @@ def remove_i_need(astring):
     astring = astring.strip()
     return astring
         
+
 def homogenize(astring):
     """
     man oh man I just NEED a new computer -> I need a new computer
@@ -183,6 +184,12 @@ def get_word_based_on_pos_and_vector(pos,keysetters,ineed,threshold=.42,probabil
     options = myvocabulary_filtered[pos]
     #options = [w.split(">")[0] for w in options]## this is not necessary; already filtered
     options = list(set(options))
+
+    ## weird thing to maybe just get one keysetter, some of the time
+    if random.choice([True,True,False]):
+        keysetters = [random.choice(keysetters)]
+
+
     try:
         options_sorted_according_to_keysetters = tune_one_list_according_to_max_similarity_to_another_list(options,keysetters,threshold)
         try:
