@@ -152,7 +152,7 @@ body.candleEquipped {
   text-align: center;
   font-family:'IM Fell English', serif;
   text-shadow: 0 0 10px white, 0 0 10px white;
-  visibility:hidden;
+  opacity:0;
 }
 
 #candles{

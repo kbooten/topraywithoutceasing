@@ -261,7 +261,7 @@ myprayers = {
 
 
 
-	"to sleep less":{
+	"to be alert":{
 		0:"May you {VB.wake.open.alert.rise}",  ## basic
 		1:"Yea, for you cannot {VB.escape} your {NN.life}", ## for (analysis of need)
 		2:"May it be so, though you wish to {VB.escape} your {NN.life}",  ## although (caveat)
@@ -578,6 +578,17 @@ myprayers = {
 	},
 
 
+	"to get a haircut and do my hair and skin":{
+		0:"May your body be {JJ.beautiful} and {JJ.controllable.smooth.strong}",  ## basic
+		1:"Yea, for you look in the {NN.mirror} and see a {JJ.unruly.snake} {NN.snake.nest.spill}", ## for (analysis of need)
+		2:"May it be so, though then a stranger must {VB.cut.touch} your {NN.head.hair.skin}",  ## although (caveat)
+		3:"You wash yourself clean with {NN.soap}; you brush it with {NNS.feathers}", ## you cry out, you look (needful action)
+		4:"Shall you cover your {NN.head.face} with a {NN.scarf} of {NN.shame}?",  ## question
+		5:"May you not feel your {NN.hair.skin} torn out like {NN.roots}", ## not (negation)
+		6:"Await the feeling of the {NN.sword} and the {NN.soap}",  ## nouns
+		7:"and feel {JJ.radiant}", ## callback		
+	},
+
 
 	"to get my lashes lips fingernails done":{ ## plural of above
 		0:"May your {NNS.eyelashes.lips.fingernails} be {JJ.beautiful} and {JJ.controllable.smooth}",  ## basic
@@ -681,7 +692,6 @@ myprayers = {
 	},
 
 
-
 	"a kiss":{ ## semi duplicate
 		0:"May you become {JJ.joined} at the {NN.mouth}",  ## basic
 		1:"Yea, for a {NN.body} longs for the {JJ.chaste} {NN.encounter}", ## for (analysis of need)
@@ -743,7 +753,6 @@ myprayers = {
 	},
 
 
-
 	"to win and succeed":{
 		0:"May you {VB.conquer}",  ## basic
 		1:"Yea, for the {NN.world} is a place of {JJ.fierce} {NN.struggle}", ## for (analysis of need)
@@ -754,7 +763,6 @@ myprayers = {
 		6:"Await the {NN.sweet} {JJ.taste} of {NN.victory}",  ## nouns
 		7:"your {NNS.enemies}", ## callback
 	},
-
 
 
 	"a better attitude":{
@@ -794,7 +802,7 @@ myprayers = {
 
 
 	"to kill myself":{
-		0:"No, may you find the {JJ.worthy.perfect} {NN.treasure.ornament.seed} {VBD.buried.hidden.grown} in your life",  ## basic
+		0:"No, may you find the {JJ.worthy.perfect} {NN.treasure.ornament.seed} {VBD.beloved.hidden.grown.aged} in your life",  ## basic
 		1:"Nay, for you are a {NN.treasure.star} made of {NN.gold.water.light}", ## for (analysis of need)
 		2:"May it not be so, though you wish for the {NN.night.end} of your {NN.existence.death.pain}",  ## although (caveat)
 		3:"You look into the {NN.mirror} and see a {JJ.eternal}{NN.pain.nothingness}", ## you cry out, you look (needful action)
@@ -809,6 +817,9 @@ myprayers = {
 	"to ruin a life":None, ### no prayer
 	"to ruin a life":None, ### no prayer
 	"sugar daddy baby":None, ### no prayer
+	"I need a chance":None,
+	"that":None,
+	"something":None,
 
 
 }

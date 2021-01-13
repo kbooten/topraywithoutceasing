@@ -33,9 +33,9 @@
 <!--         <div id="myname">Kyle Booten</div>
         <div id="myyear">2020</div> -->
     </div>
-    <a type="button" id="about" href="http://residence6.nokturno.fi/"  target="_blank" onmouseover="showAbout()" onmouseout="hideAbout()"></a>
+    <a type="button" id="about" href="https://github.com/kbooten/topraywithoutceasing"  target="_blank" onmouseover="showAbout()" onmouseout="hideAbout()"></a>
     <div id="aboutMessage">
-        Kyle Booten   +2020+<br>
+        Kyle Booten   +2021+<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+about+
     </div>
     <div id="warning"></div>
@@ -111,7 +111,7 @@ function hideAbout(){
 
 function interPassiveMessage(){
     readyToScold = false; // turn off mouse speed chiding for this
-    var message = "You have begun to pray. The smoke rises. Each need receives its moment of attention.\n\nNow you can go about your day, tending to other screens, to your own needs.\n\nBut please return from time to time to make sure the candles still burn.\n\n\n\nAnd be mindful of the flames, which are hotter than most flames."
+    var message = "You have begun to pray. The smoke rises. Each need receives its moment of attention.\n\nNow you can go about your day, tending to other screens, to your own needs.\n\nBut please return from time to time to make sure the candles still burn."
     window.alert(message);
     setTimeout(function(){readyToScold = true},4000);
 }
@@ -361,8 +361,8 @@ var onCalcSpeed = function() {
     var speedY = speed.speedY;
     // do anything you want with speed values
     var abs = Math.abs(speedX)+Math.abs(speedY);
-    console.log(abs)
-    if (abs>230 && readyToScold==true){
+    //console.log(abs)
+    if (abs>130 && readyToScold==true){
         console.log(warnings)
         warnings+=1
         readyToScold = false;
@@ -490,7 +490,7 @@ let Candle = class {
                             pV = document.getElementById("prayerViewer");
                             // console.log(currentPrayers[0][1]);
                             // pV.innerHTML = currentPrayers[0][1]; //reveal first prayer
-                            pV.style.visibility = 'visible';
+                            //pV.style.visibility = 'visible';
                             pV.style.opacity = 0;            
                             setTimeout(function(){$("#prayerViewer").fadeTo(2000, 1,incrementPrayerTotal)},3400);
                         }else{
@@ -528,7 +528,7 @@ let Candle = class {
                 clearInterval(self.burnInterval);
                 self.goBurnt();
             }
-            },5000); // burn speed
+            },1000); // burn speed
         }
         // candle goes out
         self.goBurnt = function(){
@@ -545,7 +545,7 @@ let Candle = class {
                 stopPrayer();
                 document.getElementById('clock').style.display = "none";
                 document.getElementById('levelInfo').style.display = "none";
-                document.getElementById("prayerViewer").style.visibility = 'hidden';
+                document.getElementById("prayerViewer").style.opacity = 0;
             }
         }
         // relight candle
@@ -584,14 +584,15 @@ let Candle = class {
             if (areAnyLit()==false){
                 document.getElementById('clock').style.display = "none";
                 document.getElementById('levelInfo').style.display = "none";
-                document.getElementById("prayerViewer").style.visibility = 'hidden';
+                document.getElementById("prayerViewer").style.opacity = 0;
             }
         }
-        // ghost pauses
-        self.candle.onclick = function(){
-            self.pauseCandle();
+        // // ghost pauses
+        // // for debugging only
+        // self.candle.onclick = function(){
+        //     self.pauseCandle();
 
-        }
+        // }
         // 
         self.candle.onmouseover = function(){
             if (self.isBurnt==true){
@@ -649,28 +650,41 @@ let horaeCanonicae = class {
         self.startTime = Date.now();
         self.hours = ['matins','lauds','prime','terce','sext','nones','vespers','compline'];
         //self.currentHour = self.hours[0];
+        // self.hours2duration = {
+        //                     // should be 24 hours, or 1440 minutes
+        //                     'matins': 60000 * 10,
+        //                     'lauds': 60000 *  20,
+        //                     'prime': 60000 * 70,
+        //                     'terce': 60000 * 110,
+        //                     'sext': 60000 * 200,
+        //                     'nones': 60000 * 380,
+        //                     'vespers': 60000 * 590,
+        //                     'compline': 60000 * 60,
+        //                 };
         self.hours2duration = {
-                            // should be 24 hours, or 1440 minutes
-                            'matins': 60000 * 10,
-                            'lauds': 60000 *  20,
-                            'prime': 60000 * 70,
-                            'terce': 60000 * 110,
-                            'sext': 60000 * 200,
-                            'nones': 60000 * 380,
-                            'vespers': 60000 * 590,
-                            'compline': 60000 * 60,
+                            // for debugging quickly
+                            'matins': 60000 * 3,
+                            'lauds': 60000 *  3,
+                            'prime': 60000 * 3,
+                            'terce': 60000 * 3,
+                            'sext': 60000 * 3,
+                            'nones': 60000 * 3,
+                            'vespers': 60000 * 3,
+                            'compline': 60000 * 3,
                         };
+
         self.timeAlreadySpent = 0;//this is what I'll credit upon restarting, subtracting from total time left
 
         self.start = function(){
             //need to reset the time i'm crediting here or else it will keep adding it
             self.startTime = Date.now();
-            var timeAlreadySpentOld = self.timeAlreadySpent
-            self.timeAlreadySpent = 0;
+            //var timeAlreadySpentOld = self.timeAlreadySpent;
+            console.log("already spent:"+self.timeAlreadySpent)
+            //self.timeAlreadySpent = 0;
             ///change hour in a bit
-            console.log(self.hours2duration[self.hours[0]]-timeAlreadySpentOld);
+            console.log(self.hours2duration[self.hours[0]]-self.timeAlreadySpent);
             self.intervalVariable = setInterval(self.changeHour,
-                self.hours2duration[self.hours[0]]-timeAlreadySpentOld);
+                self.hours2duration[self.hours[0]]-self.timeAlreadySpent);
         }
 
         self.changeHour = function(){
@@ -688,7 +702,7 @@ let horaeCanonicae = class {
         self.pause = function(){
             ///will happen when prayer stops/candles go out
             var elapsedTime = Date.now()-this.startTime;
-            self.timeAlreadySpent = elapsedTime; // credit this to user for unpausing
+            self.timeAlreadySpent += elapsedTime; // credit this to user for unpausing
             clearInterval(self.intervalVariable);
         }
 
@@ -698,10 +712,11 @@ let horaeCanonicae = class {
         console.log("startTime =" +this.startTime);
         var elapsedTime = Date.now()-this.startTime;
                 console.log("elapsedTime =" +elapsedTime);
+                console.log("self.timeAlreadySpent = "+this.timeAlreadySpent);
                 console.log(this.hours2duration)
                 console.log(this.hours[0])
                 console.log(this.hours2duration[this.hours[0]])
-        var timeToGo = this.hours2duration[this.hours[0]]-elapsedTime;
+        var timeToGo = this.hours2duration[this.hours[0]]-elapsedTime-this.timeAlreadySpent;
 
                 console.log("timeToGo =" +timeToGo);
 

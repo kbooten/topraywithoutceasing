@@ -80,12 +80,16 @@ def get_close_proverb_sbert(prayer):
             matching_proverbs.append(last)
 
 
-def proverbialize(prayer):
+def proverbialize(prayer,need):
     """
     gets a close proverb and reformats
     """
-    close_proverb = get_close_proverb_sbert(prayer)
+    if random.choice([True,False]):
+        close_proverb = get_close_proverb_sbert(prayer)
+    else:
+        close_proverb = get_close_proverb_sbert(need)
     return "%s<br>for it is written:<br>%s" % (prayer,close_proverb)
+
 
 
 def reload():
@@ -283,14 +287,14 @@ def pray(ineed,homog=True):
         if type(prayer)==list: ## a list to randomly choose from
             prayer = random.choice(prayer)
         ### either ADORN or (rarely) ADD PROVERB
-        if random.random()<.92: ## most of the time
+        if random.random()<.9: ## most of the time
             prayers[p]=adorn(fix(process_string(prayer,ineed)))
         else: ## rarely add a proverb
-            prayers[p]=proverbialize(fix(process_string(prayer,ineed)))
+            prayers[p]=proverbialize(fix(process_string(prayer,ineed)),ineed)
     return {"need":match['need'],"score":match['score'],"banned":False,"prayers":prayers,'template':myprayers.myprayers[match['need']]}
 
 
-def pray_with_simplification(ineed,homog=True,threshold=.7,min_tokens=2):
+def pray_with_simplification(ineed,homog=True,threshold=.65,min_tokens=4,max_deletions=3):
     """
     will try to find match, taking off a token until there is a match, i.e.
 
@@ -301,10 +305,11 @@ def pray_with_simplification(ineed,homog=True,threshold=.7,min_tokens=2):
     I need to dance the
 
     or not enough tokens left (after the first instance of "need")
+    or max_deletions reached
     returns a prayer dict if successful
     returns None if unsuccessful
     """
-    while True:
+    for i in range(max_deletions):
         ineed = homogenize(ineed)
         prayer = pray(ineed,homog=False)## already one
         if prayer["score"]>=threshold:
