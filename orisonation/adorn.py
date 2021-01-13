@@ -142,8 +142,8 @@ def adorn_noun_with_phrase(astring):
 	thisorthat,noun,phrase = get_prep_recl_phrase_for_noun(core)
 	phrase = phrase[0]
 	phrase_str = betterjoin([token for token,tag in phrase])
-	phrase_str = re.sub(r'that ',"",phrase_str,flags=re.IGNORECASE) ## some begin "that"
-	phrase_str = re.sub(r'if ',"",phrase_str,flags=re.IGNORECASE) ## some begin "if"
+	# phrase_str = re.sub(r'^that ',"",phrase_str,flags=re.IGNORECASE) ## some begin "that"
+	# phrase_str = re.sub(r'^if ',"",phrase_str,flags=re.IGNORECASE) ## some begin "if"
 	phrase_str = re.sub(r', old man$',"",phrase_str,flags=re.IGNORECASE) ## some begin "that"
 	noun_str = noun[0]
 	str_rep = "%s %s %s" % (thisorthat,noun_str,phrase_str)
@@ -206,6 +206,13 @@ def adorn_svo_parallelism(astring):
 			token = token.title()
 		svo_tokens.append(token)#[token.upper() if tag in ["NNP","NNPS"] else token for token,tag in svo]
 	str_rep = betterjoin(svo_tokens)
+	# str_rep = re.sub(r'^that ',"",str_rep,flags=re.IGNORECASE) ## some begin "that"
+	# str_rep = re.sub(r'^if ',"",str_rep,flags=re.IGNORECASE) ## some begin "if"
+	# str_rep = re.sub(r'^and ',"",str_rep,flags=re.IGNORECASE) ## some begin "if"
+	# str_rep = re.sub(r'^but ',"",str_rep,flags=re.IGNORECASE) ## some begin "if"
+	# str_rep = re.sub(r'^though ',"",str_rep,flags=re.IGNORECASE) ## some begin "if"
+	# str_rep = re.sub(r'^for ',"",str_rep,flags=re.IGNORECASE) ## some begin "if"
+	str_rep = re.sub(r', old man$',"",str_rep,flags=re.IGNORECASE) ## some begin "that"
 	return "as "+str_rep
 
 

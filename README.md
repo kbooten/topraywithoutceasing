@@ -15,8 +15,8 @@ To Pray Without Ceasing issues prayers via a combination of information-retrieva
 
 Each of these needs is paired with a prayer that I have written, but these prayers are bland and half-baked.  I want them to be ornate and even opaque in the ways that liturgical writing can be. Here is where the computer-augmentation comes in.  Each prayer that I have written may be augmented in three ways:
 
-1. *filled in* with certain words that occur frequently in the King James Bible
-2. *adorned* with semantically-relevant grammatical chunks extracted from the King James Bible using SpaCy's dependency parser; for instance, a reference to the noun "song" may be adorned with a preposition phrase used to describe this noun, such as "of the drunkards" (see [this notebook](orisonation/biblical_data/bible_mining.ipynb))
+1. *revised* by substituting my words with semantically-proximal words that occur frequently in the King James Bible (done with some measure of randomness, increasing entropy at the expense of coherence)
+2. *adorned* with semantically-relevant grammatical chunks extracted from the King James Bible using SpaCy's dependency parser; for instance, a reference to the noun "song" may be adorned with a preposition phrase used to describe this noun, such as "of the drunkards" (see [this notebook](orisonation/biblical_data/bible_mining.ipynb));
 3. *matched* with sentences extracted from the Proverbs as well as Ecclesiastes, again using sentence vectors
 
 ![Visualization of the above process.](viz.svg)

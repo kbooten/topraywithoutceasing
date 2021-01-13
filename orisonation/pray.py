@@ -170,7 +170,7 @@ def tune_one_list_according_to_max_similarity_to_another_list(words_to_sort,tune
         return [word for word,max_sim in word_and_max_similarity if max_sim>=threshold]
 
 
-def get_word_based_on_pos_and_vector(pos,keysetters,ineed,threshold=.42,probability=.8, top_n=4):
+def get_word_based_on_pos_and_vector(pos,keysetters,ineed,threshold=.42,probability=.8, top_n=7):
     """
     a confusing function
     tries to find a word of a specific pos that is similar to one or more words, called keysetters
@@ -294,7 +294,7 @@ def pray(ineed,homog=True):
     return {"need":match['need'],"score":match['score'],"banned":False,"prayers":prayers,'template':myprayers.myprayers[match['need']]}
 
 
-def pray_with_simplification(ineed,homog=True,threshold=.65,min_tokens=4,max_deletions=3):
+def pray_with_simplification(ineed,homog=True,threshold=.67,min_tokens=4,max_deletions=3):
     """
     will try to find match, taking off a token until there is a match, i.e.
 

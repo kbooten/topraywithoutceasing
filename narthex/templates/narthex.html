@@ -33,7 +33,7 @@
 <!--         <div id="myname">Kyle Booten</div>
         <div id="myyear">2020</div> -->
     </div>
-    <a type="button" id="about" href="https://github.com/kbooten/topraywithoutceasing"  target="_blank" onmouseover="showAbout()" onmouseout="hideAbout()"></a>
+    <a type="button" id="about" href="http://residence6.nokturno.fi/"  target="_blank" onmouseover="showAbout()" onmouseout="hideAbout()"></a>
     <div id="aboutMessage">
         Kyle Booten   +2021+<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+about+
@@ -528,7 +528,7 @@ let Candle = class {
                 clearInterval(self.burnInterval);
                 self.goBurnt();
             }
-            },1000); // burn speed
+            },6000); // burn speed
         }
         // candle goes out
         self.goBurnt = function(){
@@ -649,29 +649,29 @@ let horaeCanonicae = class {
         var self = this;
         self.startTime = Date.now();
         self.hours = ['matins','lauds','prime','terce','sext','nones','vespers','compline'];
-        //self.currentHour = self.hours[0];
-        // self.hours2duration = {
-        //                     // should be 24 hours, or 1440 minutes
-        //                     'matins': 60000 * 10,
-        //                     'lauds': 60000 *  20,
-        //                     'prime': 60000 * 70,
-        //                     'terce': 60000 * 110,
-        //                     'sext': 60000 * 200,
-        //                     'nones': 60000 * 380,
-        //                     'vespers': 60000 * 590,
-        //                     'compline': 60000 * 60,
-        //                 };
+        self.currentHour = self.hours[0];
         self.hours2duration = {
-                            // for debugging quickly
-                            'matins': 60000 * 3,
-                            'lauds': 60000 *  3,
-                            'prime': 60000 * 3,
-                            'terce': 60000 * 3,
-                            'sext': 60000 * 3,
-                            'nones': 60000 * 3,
-                            'vespers': 60000 * 3,
-                            'compline': 60000 * 3,
+                            // should be 24 hours, or 1440 minutes
+                            'matins': 60000 * 10,
+                            'lauds': 60000 *  20,
+                            'prime': 60000 * 70,
+                            'terce': 60000 * 110,
+                            'sext': 60000 * 200,
+                            'nones': 60000 * 380,
+                            'vespers': 60000 * 590,
+                            'compline': 60000 * 60,
                         };
+        // self.hours2duration = {
+        //                     // for debugging quickly
+        //                     'matins': 60000 * 3,
+        //                     'lauds': 60000 *  3,
+        //                     'prime': 60000 * 3,
+        //                     'terce': 60000 * 3,
+        //                     'sext': 60000 * 3,
+        //                     'nones': 60000 * 3,
+        //                     'vespers': 60000 * 3,
+        //                     'compline': 60000 * 3,
+        //                 };
 
         self.timeAlreadySpent = 0;//this is what I'll credit upon restarting, subtracting from total time left
 

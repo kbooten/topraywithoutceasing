@@ -19,7 +19,7 @@ template = {
 myprayers = {
 
 	"a hug":{
-		0:"May you be {enrobed_clothed_wrapped} in {NN.mercy.truth.care.tenderness.warmth}", 
+		0:["May you be {enrobed_clothed_wrapped} in {NN.mercy.truth.care.tenderness.warmth}","May your {NN.body} find a {NN.halo.embrace.angel}","May this {JJ.silent.warm} {NN.action} tell you that your {NN.value} is {NN.infinite}","May someone {VB.embrace.adore.warm} you"], 
 		1:["Yea, for your {NN.heart.life.room} is without {NN.friend.lover.family.touch}","Yea, for your {NN.body.arm.face.back.breast.butt} is {JJ.cold.lonely.pensive}"],
 		2:"May it be so, though the {NN.land.mind.existence} is {JJ.empty} of {NNS.friends.companions.fingers}", 
 		3:"You cry out in a {JJ.lonely} {NN.room.cottage.temple.mind}", 
@@ -66,8 +66,8 @@ myprayers = {
 
 
 	"to be asleep":{
-		0:"May you {VB.sleep.dream.vanish}, and may your {body_mind_soul_heart_frame_joints_knees_teeth_bone_bones_breast_fingers} be {JJ.rested.healed.calm.recovered}",  ## basic
-		1:"Yea, for you have labored long, {VBG.working} the {NN.store.field.tool}", ## for (analysis of need)
+		0:["May you {VB.sleep.dream.vanish}, and may your {body_mind_soul_heart_frame_joints_knees_teeth_bone_bones_breast_fingers} be {JJ.rested.healed.calm.recovered}","May your {NN.mind.body} by in its {NN.temporary.silent} {NN.death.afterlife} which does {VB.bring.suggest} {NN.life.eternity.freedom}"],  ## basic
+		1:"Yea, for you have labored long, {VBG.working} the {NN.store.field.tool.process}", ## for (analysis of need)
 		2:"May it be so, though your {NN.work} does not {VB.die}",  ## although (caveat)
 		3:"Your {NNS.eyes.arms.thoughts} are {JJ.heavy.tired}; they are like a {NN.stone.mud}", ## you cry out, you look (needful action)
 		4:"How many hours does the {NN.king} {VB.demand}?",  ## question
@@ -312,9 +312,9 @@ myprayers = {
 
 
 	"to be massaged and rubbed":{
-		0:"May you be {VBD.touched.opened.cured} by a {JJ.delicate.attentive.intelligent} {NN.finger.palm.orb.scepter.rock}",  ## basic
+		0:"May you be {VBD.touched.opened.cured} by a {JJ.delicate.attentive.intelligent} {NN.hand.palm.orb.scepter.rock}",  ## basic
 		1:"Yea, for your {NN.muscles} are so {JJ.tired} and {JJ.sore}", ## for (analysis of need)
-		2:"May it be so, though your have no {NN.doctor} of {NNS.hands} to {VB.touch} you",  ## although (caveat)
+		2:"May it be so, though you have no {NN.doctor} of {NNS.hands} to {VB.touch} you",  ## although (caveat)
 		3:"You try to {VB.rub} your own {NNS.arms.feet.muscles.chakras} with {NN.oil.care}", ## you cry out, you look (needful action)
 		4:"Who will annoint your {NN.face.body} with {NN.balm.honey.blush.juice}?",  ## question
 		5:"May your {NN.skin} not grow {JJ.rough} as the {NN.desert}'s {NN.floor}", ## not (negation)
@@ -408,11 +408,11 @@ myprayers = {
 
 
 	"stop procrastinating and being lazy":{
-		0:"May you {VB.leap.return} to your {NN.labor.machine.rock.field.employer}}",  ## basic
+		0:"May you {VB.leap.return} to your {NN.labor.machine.rock.field.employer}",  ## basic
 		1:"Yea, for your {NN.toil} is {JJ.infinite}, and the {NN.hour} is an {JJ.old} {NN.taste.tree.song.widow}", ## for (analysis of need)
 		2:"May it be so, though you would rather {VB.observe} your {NN.television.phone}",  ## although (caveat)
 		3:"You tell your body to become a {NN.city.legion} of {NNS.ants.chariots}", ## you cry out, you look (needful action)
-		4:"Whose {NN.boss} has not gazed upon them with {NN.shame}}?",  ## question
+		4:"Whose {NN.boss} has not gazed upon them with {NN.shame}?",  ## question
 		5:"May you not wait another {JJ.precious} {NN.second.hour}", ## not (negation)
 		6:"Await the {JJ.true} {VBG.judgment} of the {NN.clock}",  ## nouns
 		7:"with a {NN.warrior}'s {NN.courage}", ## callback
@@ -522,7 +522,7 @@ myprayers = {
 	"to get a car":{
 		0:"May you find your {JJ.golden.blue.fast.foreign} {NN.chariot.car.mobility}",  ## basic
 		1:"Yea, for your {NNS.legs} are {JJ.tired}, and your {NN.work} far in the {NN.distance.desert.city}", ## for (analysis of need)
-		2:"May it be so, though a {NN.chariot} costs much {NN.gold.wheat.time}}",  ## although (caveat)
+		2:"May it be so, though a {NN.chariot} costs much {NN.gold.wheat.time}",  ## although (caveat)
 		3:"You try to {VB.run} like a {JJ.drunk.fast} {NN.horse.river.warrior}", ## you cry out, you look (needful action)
 		4:"When will you be home in time for your {NN.dinner.love.theater}?",  ## question
 		5:"May you not {VB.walk} without {NNS.wheels}", ## not (negation)
@@ -798,6 +798,29 @@ myprayers = {
 		5:"May you find yourself not in a {NN.crowd} of {NNS.thorns.lions.businesses} but of {NNS.friends}", ## not (negation)
 		6:"Await the {JJ.true} {NN.friend} of your {NN.future}, a single {NN.berry.gift.person}",  ## nouns
 		7:"who would follow you to {Jerusalem_Egypt_Shiloh_Kadesh_Taanathshiloh_Michmethah_Armenia}", ## callback, ### no prayer
+	},
+
+
+	"a job":{
+		0:"May you {VB.work} with your {NN.hand.mind.skill}",  ## basic
+		1:"Yea, for you need {NN.money} to afford your {NN.rent.food.turnip.life.adventure}", ## for (analysis of need)
+		2:"May it be so, though the {NNS.bosses} do not call your name in the {NN.market}",  ## although (caveat)
+		3:"You {VB.prepare.write.share} the {NN.resume.story} of your {NNS.talents.work}", ## you cry out, you look (needful action)
+		4:"Who will give you a {NN.shield.job.machine.dollar}?",  ## question
+		5:"May you find yourself not forgotten by the {NN.economy}", ## not (negation)
+		6:"Await the {VBG.hiring} of your {NN.name.mind.body}",  ## nouns
+		7:"for a {NN.honest} {NN.wage} of {NN.gold.food.fish.water.syrup}", ## callback, ### no prayer
+	},
+
+	"to go to work":{ ## semi-duplicate
+		0:"May you {VB.work} with your {NN.hand.mind.skill}",  ## basic
+		1:"Yea, for you need {NN.money} to afford your {NN.rent.food.turnip.life.adventure}", ## for (analysis of need)
+		2:"May it be so, though your {NN.body.mind} is {JJ.exhausted.asleep.rebellious}",  ## although (caveat)
+		3:"You {VB.prepare.write.share} the {NN.resume.story} of your {NNS.talents.work}", ## you cry out, you look (needful action)
+		4:"How many {NNS.units} of {NN.gold.feather} are you worth?",  ## question
+		5:"May you find yourself not forgotten by the {NN.economy}", ## not (negation)
+		6:"Await the {VBG.ringing} of your {NN.work} {NN.bell}",  ## nouns
+		7:"for a {NN.honest} {NN.wage} of {NN.gold.food.fish.water.syrup}", ## callback, ### no prayer
 	},
 
 
