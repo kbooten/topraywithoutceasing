@@ -30,12 +30,12 @@ myprayers = {
 	},
 
 
-	"to cry in my bed":{
+	"to cry":{
 		0:["May your tears {VB.flow.water} like the {NN.rainfall}","May you find {NN.solace} in your {JJ.comfortable} {NN.place}"],  ## basic
-		1:["Yea, for your eyes become {JJ.full.wet}","Yea, for {NN.sadness} seeks its {NN.expression}","Yea, for your {NNS.dreams} are {JJ.ruined} {NN.dirt}"], ## for (analysis of need)
+		1:["Yea, for your eyes become {JJ.full.wet}","Yea, for {NN.sadness.water} seeks its {NN.expression.outlet.perfection.pain}","Yea, for your {NNS.dreams} are {JJ.ruined} {NN.dirt}"], ## for (analysis of need)
 		2:"May it be so, though your {NNS.tears} remain {JJ.hidden}",  ## although (caveat)
 		3:"You become a {NN.ball}", ## you cry out, you look (needful action)
-		4:"Who will hear the wailing of your {NN.face}?",  ## question
+		4:"Who will hear the {VB.wailing} of your {NN.face.heart}?",  ## question
 		5:"May you not keep this {NN.pain} in your {NN.heart}", ## not (negation)
 		6:"Await the {JJ.sleepy} {NN.mercy} of {NN.exhaustion}",  ## nouns
 		7:", and may you {VB.dream} of {NN.sugar.forgiveness.mercy}", ## callback
@@ -55,7 +55,7 @@ myprayers = {
 
 	"to get some food":{
 		0:"May you eat this {NN.food.energy.power}",  ## basic
-		1:"Yea, for you {VB.hunger} for {NN.nutrition}", ## for (analysis of need)
+		1:"Yea, for you {VB.hunger.quest.scream} for {NN.nutrition.flesh.energy}", ## for (analysis of need)
 		2:"May it be so, though the {NN.cupboard.land} is {JJ.empty.starving}",  ## although (caveat)
 		3:"You {VB.hunt} in your {NN.cave}", ## you cry out, you look (needful action)
 		4:"Where is the {NN.taste}?  Where the {NN.chef} of {NN.nutrition}?",  ## question
@@ -66,8 +66,8 @@ myprayers = {
 
 
 	"to be asleep":{
-		0:["May you {VB.sleep.dream.vanish}, and may your {body_mind_soul_heart_frame_joints_knees_teeth_bone_bones_breast_fingers} be {JJ.rested.healed.calm.recovered}","May your {NN.mind.body} by in its {NN.temporary.silent} {NN.death.afterlife} which does {VB.bring.suggest} {NN.life.eternity.freedom}"],  ## basic
-		1:"Yea, for you have labored long, {VBG.working} the {NN.store.field.tool.process}", ## for (analysis of need)
+		0:["May you {VB.sleep.dream.vanish}, and may your {body_mind_soul_heart_frame_joints_knees_teeth_bone_bones_breast_fingers} be {JJ.rested.healed.calm.recovered}","May your {NN.mind.body} {VB.reside.dance.think} in its {NN.temporary.silent} {NN.death.afterlife} which does {VB.bring.suggest} {NN.life.eternity.freedom}"],  ## basic
+		1:["Yea, for you have labored long, {VBG.working.threshing.ordering.requesting} the {NN.store.field.tool.process}","Yea, for your {NNS.limbs} are like {JJ.fallen.sleeping.dull} {NNS.tools.leaves.clouds.energies.songs}"], ## for (analysis of need)
 		2:"May it be so, though your {NN.work} does not {VB.die}",  ## although (caveat)
 		3:"Your {NNS.eyes.arms.thoughts} are {JJ.heavy.tired}; they are like a {NN.stone.mud}", ## you cry out, you look (needful action)
 		4:"How many hours does the {NN.king} {VB.demand}?",  ## question
@@ -77,8 +77,8 @@ myprayers = {
 	},
 
 	"to sleep for days":{ ##duplicate
-		0:"May you {VB.sleep.dream.vanish}, and may your {body_mind_soul_heart_frame_joints_knees_teeth_tooth_bone_bones} be {JJ.rested.healed.calm}",  ## basic
-		1:"Yea, for you have labored long, {VBG.working} the {NN.store.field.tool}", ## for (analysis of need)
+		0:["May you {VB.sleep.dream.vanish}, and may your {body_mind_soul_heart_frame_joints_knees_teeth_bone_bones_breast_fingers} be {JJ.rested.healed.calm.recovered}","May your {NN.mind.body} {VB.reside.dance.think} in its {NN.temporary.silent} {NN.death.afterlife} which does {VB.bring.suggest} {NN.life.eternity.freedom}"],  ## basic
+		1:["Yea, for you have labored long, {VBG.working.threshing.ordering.requesting} the {NN.store.field.tool.process}","Yea, for your {NNS.limbs} are like {JJ.fallen.sleeping.dull} {NNS.tools.leaves.clouds.energies.songs}"], ## for (analysis of need)
 		2:"May it be so, though your {NN.work} does not {VB.die}",  ## although (caveat)
 		3:"Your {NNS.eyes.arms.thoughts} are {JJ.heavy.tired}; they are like a {NN.stone.mud}", ## you cry out, you look (needful action)
 		4:"How many hours does the {NN.king} {VB.demand}?",  ## question
@@ -90,8 +90,8 @@ myprayers = {
 
 	#duplicate
 	"to go to bed":{
-		0:"May you {VB.sleep.dream.vanish}, and may your {body_mind_soul_heart_frame_joints_knees_teeth_tooth_bone_bones} be {JJ.rested.healed.calm}",  ## basic
-		1:"Yea, for you have labored long, {VBG.working} the {NN.store.field.tool}", ## for (analysis of need)
+		0:["May you {VB.sleep.dream.vanish}, and may your {body_mind_soul_heart_frame_joints_knees_teeth_bone_bones_breast_fingers} be {JJ.rested.healed.calm.recovered}","May your {NN.mind.body} {VB.reside.dance.think} in its {NN.temporary.silent} {NN.death.afterlife} which does {VB.bring.suggest} {NN.life.eternity.freedom}"],  ## basic
+		1:["Yea, for you have labored long, {VBG.working.threshing.ordering.requesting} the {NN.store.field.tool.process}","Yea, for your {NNS.limbs} are like {JJ.fallen.sleeping.dull} {NNS.tools.leaves.clouds.energies.songs}"], ## for (analysis of need)
 		2:"May it be so, though your {NN.work} does not {VB.die}",  ## although (caveat)
 		3:"Your {NNS.eyes.arms} are {JJ.heavy.tired}; they are like a {NN.stone}", ## you cry out, you look (needful action)
 		4:"How many hours does the {NN.king} {VB.demand}?",  ## question
@@ -102,8 +102,8 @@ myprayers = {
 
 
 	"go on vacation":{
-		0:"May you leave this {JJ.wicked.boring.long.painful} {NN.land.life.existence.work.task}",  ## basic
-		1:"Yea, for you long to see other {NNS.mountains.faces}", ## for (analysis of need)
+		0:["May you leave this {JJ.wicked.boring.long.painful} {NN.land.life.existence.work.task}","May you {VB.visit.experience} another {NN.space.city} of the {NN.mind}"],  ## basic
+		1:["Yea, for you long to see other {NNS.mountains.faces}","Yea, for inside your {NN.heart} is a {NN.explorer.cat.breeze} that must {VB.romp.graze.purchase}"], ## for (analysis of need)
 		2:"May it be so, though a {NN.journey.boat.escape} costs many {NNS.coins}",  ## although (caveat)
 		3:"You {JJ.save} your {NN.vacation} {NNS.days}", ## you cry out, you look (needful action)
 		4:"Will you go to the land of {NN.ice} or {NN.desert}?",  ## question
@@ -114,8 +114,8 @@ myprayers = {
 
 	## duplicate
 	"a break from everything":{
-		0:"May you leave this {JJ.wicked.boring.long.painful} {NN.land.life.existence.work.task}",  ## basic
-		1:"Yea, for you long to see other {NNS.mountains.faces}", ## for (analysis of need)
+		0:["May you leave this {JJ.wicked.boring.long.painful} {NN.land.life.existence.work.task}","May you {VB.visit.experience} another {NN.space.city} of the {NN.mind}"],  ## basic
+		1:["Yea, for you long to see other {NNS.mountains.faces}","Yea, for inside your {NN.heart} is a {NN.explorer.cat.breeze} that must {VB.romp.graze.purchase}"], ## for (analysis of need)
 		2:"May it be so, though a {NN.journey.boat.escape} costs many {NNS.coins}",  ## although (caveat)
 		3:"You {JJ.save} your {NN.vacation} {NNS.days}", ## you cry out, you look (needful action)
 		4:"Will you go to the land of {NN.ice} or {NN.desert}?",  ## question
@@ -811,6 +811,8 @@ myprayers = {
 		6:"Await the {VBG.hiring} of your {NN.name.mind.body}",  ## nouns
 		7:"for a {NN.honest} {NN.wage} of {NN.gold.food.fish.water.syrup}", ## callback, ### no prayer
 	},
+
+	"to quit this job":None,##do later
 
 	"to go to work":{ ## semi-duplicate
 		0:"May you {VB.work} with your {NN.hand.mind.skill}",  ## basic

@@ -207,6 +207,7 @@ def adorn_svo_parallelism(astring):
 		svo_tokens.append(token)#[token.upper() if tag in ["NNP","NNPS"] else token for token,tag in svo]
 	str_rep = betterjoin(svo_tokens)
 	# str_rep = re.sub(r'^that ',"",str_rep,flags=re.IGNORECASE) ## some begin "that"
+	str_rep = re.sub(r'^so that ',"",str_rep,flags=re.IGNORECASE) ## some begin "that"
 	# str_rep = re.sub(r'^if ',"",str_rep,flags=re.IGNORECASE) ## some begin "if"
 	# str_rep = re.sub(r'^and ',"",str_rep,flags=re.IGNORECASE) ## some begin "if"
 	# str_rep = re.sub(r'^but ',"",str_rep,flags=re.IGNORECASE) ## some begin "if"

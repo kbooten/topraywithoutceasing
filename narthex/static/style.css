@@ -238,7 +238,7 @@ body.candleEquipped {
 }
 
 .lighting{
-  text-shadow: 0 0 10px gold, 0 0 10px gold, 0 0 10px gold;
+  text-shadow: 0 0 10px gold, 0 0 10px gold, 0 0 10px gold, 0 0 10px gold, 0 0 10px gold, 0 0 6px red, 0 0 3px white, 0 0 12px gold, 0 0 15px gold;
 }
 
 .flame{

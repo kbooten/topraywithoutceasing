@@ -374,7 +374,7 @@ var onCalcSpeed = function() {
             quickChideOptions.push(lastQuickChideOption);
             window.alert(lastQuickChideOption)    
         }else if (warnings==1){
-            window.alert("Your cursor is fleet.  But this is a place for being slow.")
+            window.alert("Your cursor is fleet.  But this is a place for moving slowly.")
         }else if (warnings==10){
             window.alert("From the Latin 'currere'--'to run.'  Yet this is not a place for running.")
         }else if (warnings==20){
@@ -663,9 +663,9 @@ let horaeCanonicae = class {
                         };
         // self.hours2duration = {
         //                     // for debugging quickly
-        //                     'matins': 60000 * 3,
-        //                     'lauds': 60000 *  3,
-        //                     'prime': 60000 * 3,
+        //                     'matins': 60000 * 1,
+        //                     'lauds': 60000 *  4,
+        //                     'prime': 60000 * 7,
         //                     'terce': 60000 * 3,
         //                     'sext': 60000 * 3,
         //                     'nones': 60000 * 3,
@@ -697,6 +697,11 @@ let horaeCanonicae = class {
             document.getElementById("nextHour").innerHTML = self.hours[1].toUpperCase();
             // external
             startWidgetDisplay();
+            //
+            clearInterval(self.intervalVariable);
+            self.intervalVariable = setInterval(self.changeHour,
+                self.hours2duration[self.hours[0]]-self.timeAlreadySpent);
+            //
         }
         
         self.pause = function(){
@@ -821,7 +826,7 @@ $(window).on('load', function(){
             if (anyWarnings==false){
                 console.log("did not load test; must raise warning")
                 var warning = document.getElementById("warning")
-                warning.innerHTML = "Content blocking detected; try again with a different browser or outside of incognito/private mode"
+                warning.innerHTML = "Content blocking detected; try again with a different browser, outside of incognito/private mode, or with 'enhanced tracking protection' set to off";
                 warning.style.visibility = "visible";
                 anyWarnings=true;
             }

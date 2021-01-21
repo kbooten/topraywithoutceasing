@@ -1,6 +1,6 @@
 # To Pray Without Ceasing
 
-To Pray Without Ceasing is an algorithmic web-app that invites users to pay attention to the needs of strangers. It listens for expressions of need on Twitter (e.g. "I really need somebody to talk to"), especially those tweeted by Twitter users who have few followers. It then generates empathetic prayers specific to these needs. I completed the first version of To Pray Without Ceasing during a residence via [Nokturno.fi](http://residence6.nokturno.fi/) in late 2020/early 2021.
+[To Pray Without Ceasing](http://topraywithoutceasing.com) is an algorithmic web-app that invites users to pay attention to the needs of strangers. It listens for expressions of need on Twitter (e.g. "I really need somebody to talk to"), especially those tweeted by Twitter users who have few followers. It then generates empathetic prayers specific to these needs. I completed the first version of To Pray Without Ceasing during a residence via [Nokturno.fi](http://residence6.nokturno.fi/) in late 2020/early 2021.
 
 To make the system pray, the visitor must keep lit a virtual candle that slowly burns down and is eventually extinguished. However, this is not a particularly demanding ritual; the web-app is designed to be left on in the background of one's day, checked in upon and tended to from time to time.  
 
